@@ -9,7 +9,8 @@ setup(
     version='0.1.0',
     author='Łael Al-Halawani',
     author_email='laelhalawani@gmail.com',
-    description='A helpful wrapper class for langauge detection AI using the meta\'s fasttext library and iso-639-3 language standard codes.',
+    description='A helpful langauge detection AI using the meta\'s fasttext library and iso-639-3 language standard codes. \
+Features language detection and conversion of language codes to human readable language names.',
     packages=find_packages(),
     install_requires=requirements,
     classifiers=[
