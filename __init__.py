@@ -1,4 +1,4 @@
-from language_checker import LanguageChecker
+from .language_checker import LanguageChecker
 
 
 __all__ = ['LanguageChecker']
