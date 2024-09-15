@@ -179,3 +179,43 @@ class LanguageChecker:
         language_name = self._language_name_from_label(language_label)
         return language_name, confidence
 
+    def is_same_language(self, *texts: str, certainty: Optional[float] = None) -> bool:
+        """
+        Checks if all the given texts are written in the same language.
+
+        Args:
+            *texts (str): The input texts to compare.
+            certainty (float, optional): The confidence threshold between 0 and 1.
+
+        Returns:
+            bool: True if all texts are in the same language; otherwise, False.
+        """
+        languages = set()
+        for text in texts:
+            try:
+                language = self.predict_language(text, certainty=certainty)
+                languages.add(language)
+            except ValueError:
+                # If the certainty threshold is not met for any text, return False
+                log.warning(f"Failed to predict language for text: {text}, returning False.")
+                return False
+        return len(languages) == 1
+
+    def is_language(self, language_name: str, text: str, certainty: Optional[float] = None) -> bool:
+        """
+        Checks if the given text is written in the specified language.
+
+        Args:
+            language_name (str): The language name to check.
+            text (str): The input text to analyze.
+            certainty (float, optional): The confidence threshold between 0 and 1.
+
+        Returns:
+            bool: True if the text is written in the specified language; otherwise, False.
+        """
+        try:
+            predicted_language = self.predict_language(text, certainty=certainty)
+            return predicted_language == language_name
+        except ValueError:
+            log.warning(f"Failed to predict language for text: {text}, returning False.")
+            return False
