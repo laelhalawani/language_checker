@@ -215,7 +215,7 @@ class LanguageChecker:
         """
         try:
             predicted_language = self.predict_language(text, certainty=certainty)
-            return predicted_language == language_name
+            return predicted_language.lower() == language_name.lower()
         except ValueError:
             log.warning(f"Failed to predict language for text: {text}, returning False.")
             return False
