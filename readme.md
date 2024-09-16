@@ -1,4 +1,4 @@
-# AI Language Detection with FastText
+# AI Language Detection with Language Checker
 
 This project provides a Python module for detecting the language of a given text using AI via the FastText language identification model by Meta-Facebook. It includes utilities for mapping between ISO 639-3 language codes and their corresponding language names, as well as a wrapper for easier use of the AI model.
 
