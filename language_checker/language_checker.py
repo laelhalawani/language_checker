@@ -206,7 +206,7 @@ class LanguageChecker:
         Checks if the given text is written in the specified language.
 
         Args:
-            language_name (str): The language name to check.
+            language_name (str): Full name of the language name to check, not case-sensitive. e.g., "English".
             text (str): The input text to analyze.
             certainty (float, optional): The confidence threshold between 0 and 1.
 
